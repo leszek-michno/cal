@@ -73,7 +73,7 @@ const App = () => {
     <div className="App">
       {Vodkas}
       <br />
-      <button onClick={handleTotalIncome}>Posumowanie</button>
+      <button onClick={handleTotalIncome}>Podsumowanie</button>
       <h2> Wódki: {totalVodkaIncome} zł</h2>
        
     </div>
