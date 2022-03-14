@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./App.css";
-import Vodka from "./components/Vodka";
+import Vodka from "./Vodka";
 
-const App = () => {
+const StrongAlco = ({soft}) => {
 
   const [totalVodkaIncome, setTotalIncome] = useState(0);  
 
@@ -59,6 +58,16 @@ const App = () => {
       alcoWeight: 465,
       income: 0,
     },
+    {
+      id: 6,
+      name: "Gin Bombay (40ml)",
+      volume: 700,
+      priceFortyM: 16,
+      fullBottleWeight: 1150,
+      emptyBottleWeight: 500,
+      alcoWeight: 650,
+      income: 0,
+    },
 
   ]);
 
@@ -67,17 +76,21 @@ const App = () => {
   const handleTotalIncome = () => {
     const allVodkas = vodka.map((vodka) => vodka.income);
     setTotalIncome(allVodkas.reduce((a, b) => a + b, 0));
+    
   };
+
+  
 
   return (
     <div className="App">
+      <h1>Mocne alkohole</h1>
+      <hr />
       {Vodkas}
-      <br />
+      <h2> Mocne alkohole {totalVodkaIncome} zł</h2>
       <button onClick={handleTotalIncome}>Podsumowanie</button>
-      <h2> Wódki: {totalVodkaIncome} zł</h2>
-       
+      <hr />       
     </div>
   );
 };
 
-export default App;
+export default StrongAlco;

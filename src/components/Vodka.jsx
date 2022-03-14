@@ -35,10 +35,11 @@ const Vodka = ({ vodka }) => {
         (endWeightOpenBottel * 1 - vodka.emptyBottleWeight)
       : endFullBottles * 1 * vodka.alcoWeight;
 
-   let income = ((initialState * 1 - finalState * 1) / (vodka.alcoWeight / 12.5) * vodka.priceFortyM * 1).toFixed(2)
-   
-   
-  
+  let income = (
+    ((initialState * 1 - finalState * 1) / (vodka.alcoWeight / 12.5)) *
+    vodka.priceFortyM *
+    1
+  ).toFixed(2);
 
   return (
     <div>
@@ -47,49 +48,53 @@ const Vodka = ({ vodka }) => {
         cena: {vodka.priceFortyM} zł {""}
       </span>
       <input
-        className={
-          cargoBottles > 0 ? "color" : " " && cargoBottles < 0 ? "alarm" : " "
-        }
+        className={cargoBottles > 0 ? "color" : " " && cargoBottles < 0 ? "alarm" : " "}
         type="number"
         value={cargoBottles}
         onChange={cargoB}
         placeholder="dostawa"
       />
       <input
-        className="blue"
+        className={startFullBottles >= 0 ? "blue" : "alarm"}
         type="number"
         value={startFullBottles}
         onChange={startFB}
-        placeholder="pełne na start"
+        placeholder="start - pełne"
       />
       <input
-        className="blue"
+        className={startWeightOpenBottel >= 0 ? "blue" : "alarm"}
         type="number"
         value={startWeightOpenBottel}
         onChange={startWOB}
-        placeholder="waga otwartej na start"
+        placeholder="start - waga otwartej"
       />
       <input
-        className="yellow"
+        className={endFullBottles < 0 && "alarm"}
         type="number"
         value={endFullBottles}
         onChange={endFB}
         placeholder="pełne na koniec"
       />
       <input
-        className="yellow"
+        className={endWeightOpenBottel < 0 && "alarm" }
         type="number"
         value={endWeightOpenBottel}
         onChange={endWOB}
-        placeholder="waga otwartej na koniec"
+        placeholder="kaniec - waga otwartej"
       />
-      <span >dochód w zł: {' '} <strong>
-        {income >= 0 ? vodka.income = income * 1 : <span className="alert">błąd w zapisie</span>}
-        </strong></span>
+      <span >
+        dochód w zł:{" "}
+        <strong>
+          {income >= 0 ? (
+            (vodka.income = income * 1)
+          ) : (
+            <span className="alert">B Ł Ą D</span>
+          )}
+        </strong>
+      </span>
       <hr />
     </div>
   );
 };
 
 export default Vodka;
-
