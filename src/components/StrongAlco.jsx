@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Vodka from "./Vodka";
+import '../App.css'
 
-const StrongAlco = ({soft}) => {
+const StrongAlco = ({item}) => {
 
   const [totalVodkaIncome, setTotalIncome] = useState(0);  
 
-  const [vodka, setVodka] = useState([
+  const vodka= [
     {
       id: 1,
-      name: "Wyborowa (40ml)",
+      name: "Spirytus (40ml)",
       volume: 500,
-      priceFortyM: 10,
+      priceFortyM: 20,
       fullBottleWeight: 885,
       emptyBottleWeight: 385,
       alcoWeight: 500,
@@ -19,9 +20,9 @@ const StrongAlco = ({soft}) => {
 
     {
       id: 2,
-      name: "Spirytus (40ml)",
+      name: "Wyborowa (40ml)",
       volume: 500,
-      priceFortyM: 20,
+      priceFortyM: 10,
       fullBottleWeight: 865,
       emptyBottleWeight: 400,
       alcoWeight: 465,
@@ -63,33 +64,32 @@ const StrongAlco = ({soft}) => {
       name: "Gin Bombay (40ml)",
       volume: 700,
       priceFortyM: 16,
-      fullBottleWeight: 1150,
+      fullBottleWeight: 1200,
       emptyBottleWeight: 500,
-      alcoWeight: 650,
+      alcoWeight: 700,
       income: 0,
     },
 
-  ]);
+  ];
 
   const Vodkas = vodka.map((vodka) => <Vodka key={vodka.id} vodka={vodka} />);
   
   const handleTotalIncome = () => {
     const allVodkas = vodka.map((vodka) => vodka.income);
-    setTotalIncome(allVodkas.reduce((a, b) => a + b, 0));
+    const totalVodka = allVodkas.reduce((a, b) => a + b, 0)
+    setTotalIncome(totalVodka.toFixed(2));
     
   };
-
   
-
   return (
-    <div className="App">
+    <div>
       <h1>Mocne alkohole</h1>
-      <hr />
       {Vodkas}
-      <h2> Mocne alkohole {totalVodkaIncome} zł</h2>
       <button onClick={handleTotalIncome}>Podsumowanie</button>
+      <h2> Mocne alkohole: {item.strongAlcoIncome = totalVodkaIncome}  zł</h2>
       <hr />       
     </div>
+    
   );
 };
 

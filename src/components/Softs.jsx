@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import NoAlco from "./NoAlco";
 
-const Softs = () => {
-  
+const Softs = ({item}) => {
   const [totalSoftIncome, setTotalSoftIncome] = useState(0);
-  const [softs, setSofts] = useState([
+  const softs = [
     {
       id: 1,
       name: "Coca cola",
@@ -29,21 +28,34 @@ const Softs = () => {
       price: 6,
       income: 0,
     },
-  ]);
+    {
+      id: 5,
+      name: "Red Bull",
+      price: 10,
+      income: 0,
+    },
+    {
+      id: 6,
+      name: "Red Bull Light",
+      price: 10,
+      income: 0,
+    },
+  ];
 
   const Softs = softs.map((soft) => <NoAlco key={soft.id} soft={soft} />);
 
   const handleTotalSoftIncome = () => {
     const allSofts = softs.map((soft) => soft.income);
     setTotalSoftIncome(allSofts.reduce((a, b) => a + b, 0));
-  };
-
+       
+   };
+  
   return (
-    <div>
+    <div className="grey">
       <h1>Napoje bezalkoholowe</h1>
       {Softs}
       <button onClick={handleTotalSoftIncome}>Podsumowanie</button>
-      <h2>Napoje bezalkoholowe {totalSoftIncome}</h2>
+      <h2>Napoje bezalkoholowe {(item.softIncome = totalSoftIncome.toFixed(2))} zł</h2>
       <hr />
     </div>
   );

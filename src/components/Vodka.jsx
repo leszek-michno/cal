@@ -35,8 +35,10 @@ const Vodka = ({ vodka }) => {
         (endWeightOpenBottel * 1 - vodka.emptyBottleWeight)
       : endFullBottles * 1 * vodka.alcoWeight;
 
-  let income = (
-    ((initialState * 1 - finalState * 1) / (vodka.alcoWeight / 12.5)) *
+  const multiplier = vodka.volume / 40;     
+
+  const income = (
+    ((initialState * 1 - finalState * 1) / (vodka.alcoWeight / multiplier)) *
     vodka.priceFortyM *
     1
   ).toFixed(2);
@@ -69,14 +71,14 @@ const Vodka = ({ vodka }) => {
         placeholder="start - waga otwartej"
       />
       <input
-        className={endFullBottles < 0 && "alarm"}
+        className={endFullBottles < 0 ? "alarm" : ""}
         type="number"
         value={endFullBottles}
         onChange={endFB}
         placeholder="pełne na koniec"
       />
       <input
-        className={endWeightOpenBottel < 0 && "alarm" }
+        className={endWeightOpenBottel < 0 ? "alarm" : "" }
         type="number"
         value={endWeightOpenBottel}
         onChange={endWOB}
