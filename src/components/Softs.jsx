@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NoAlco from "./NoAlco";
 
+
 const Softs = ({item}) => {
   const [totalSoftIncome, setTotalSoftIncome] = useState(0);
   const softs = [

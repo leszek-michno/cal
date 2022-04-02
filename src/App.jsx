@@ -3,6 +3,7 @@ import "./App.css";
 import StrongAlco from "./components/StrongAlco";
 import Softs from "./components/Softs";
 
+
 const App = () => {
   const totalIncome = [
     { id: 1, name: "Napoje bezalkoholowe", softIncome: "" },

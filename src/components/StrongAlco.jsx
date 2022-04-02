@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Vodka from "./Vodka";
 import '../App.css'
 
+
 const StrongAlco = ({item}) => {
 
   const [totalVodkaIncome, setTotalIncome] = useState(0);  

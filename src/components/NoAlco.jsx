@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const NoAlco = ({ soft }) => {
   const [cargo, setCargo] = useState("");
   const [startBottles, setStartBottles] = useState("");
