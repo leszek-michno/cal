@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import StrongAlco from "./components/StrongAlco";
-import Softs from "./components/Softs";
+import StrongAlco from "./data/StrongAlco";
+import Softs from "./data/Softs";
 
 
 const App = () => {

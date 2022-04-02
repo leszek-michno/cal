@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NoAlco from "./NoAlco";
+import NoAlco from "../components/NoAlco";
 
 
 const Softs = ({item}) => {

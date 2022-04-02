@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Vodka from "./Vodka";
+import Vodka from "../components/Vodka";
 import '../App.css'
 
 
